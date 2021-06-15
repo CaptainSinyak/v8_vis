@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>V8</title>
+    <style>
+        hr {
+            margin: 50px auto;
+        }
+        header {
+            text-align: center;
+        }
+        header img {    
+            width: 200px;
+            height: 200px;
+        }
+        .container {    
+            width: auto;
+            height: auto;
+            margin: 0 auto;    
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center
+        }
+        .container p {
+            font-size: 50px;
+            font-weight: bold;
+            
+        }
+        .description {
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="./assets/images/V8_JavaScript_engine_logo_2.svg" alt="logo">
+    </header>
+
+    <hr>
+
+    <div class="container">
+        <p>V8 Pipeline</p>
+        <img src="./assets/images/V8.gif" alt="v8_pipeline">
+    </div>
+
+    <p class="description">V8 начинает свою работу с запроса на исходный код скрипта, который он получает в виде потока байтов. Особый механизм движка (на самом деле являющийся частью парсера, но вынесенный в отдельную сущность для наглядности) декодер потока байтов, техническая сторона реализации которого не требует разбора в рамках данной работы, принимает поток байтов (byte stream) и преобразует его в токены (tokens) – минимальные смысловые единицы кода (ключевые слова, переменные, операторы и т.д.). Далее парсер на основе токенов выделяет узлы (nodes), например Program, FunctionLiteral, ReturnStatement и т.п. Из них формируется Абстрактное Синтаксическое Дерево. Данное представление передается в интерпретатор, который создает из него байт-код. Он отправляется в компилятор, который проводит процессы оптимизации и выдает машинный код. В случае возникновения ошибок во время компиляции код деоптимизируется, т.е. отправляется обратно в интерпретатор.</p>
+
+    <hr>
+
+    <footer>
+        <a href="https://v8.dev/">V8 Documentation</a>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+</html>
