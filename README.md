@@ -1,14 +1,12 @@
-## Linking
+## Локальное тестирование на стадии разработки
 
-For local testing out new features of Project Ui-Kit under development in main project (Agency, for example) you can use [linking](https://classic.yarnpkg.com/en/docs/cli/link/).
-Follow these instructions to do it:
+Для локального тестирования новых фичей Project Ui-Kit на стадии разработки в основном проекте (например в Agency) можно использовать [linking](https://classic.yarnpkg.com/en/docs/cli/link/).
+Следуйте инструкциям ниже для его выполнения:
+1. Запустить `yarn link` в папке с Project Ui-Kit;
+2. В папке основного проекта запустить `cd node_modules/react` & `yarn link`, затем повторить аналогичные действия с **react-dom** для линкинга этих двух пакетов, чтобы в дальнейшем избежать конфликта двух сущностей react и react-dom (https://github.com/facebook/react/issues/14257#issuecomment-595183610);
+3. Запустить `yarn link react` & `yarn link react-dom` в папке с Project Ui-Kit;
+4. После внесения изменений в Project Ui-Kit запустить в папке с ним `yarn build`;
+5. Чтобы протестировать данные изменения необходимо запустить `yarn link «@project/ui-kit»` в папке основного проекта.
 
-1. Run `yarn link` in Project Ui-Kit folder;
-2. In main project folder `cd node_modules/react` & run `yarn link`, then do the same with **react-dom** for linking these two packages to prevent conflict with two instances of them;
-3. Run `yarn link react` & `yarn link react-dom` in Project Ui-Kit folder;
-4. After making changes in Project Ui-Kit run `yarn build` there;
-5. To test the changes run `yarn link «@project/ui-kit»` in main project folder.
-
-To reverse linking use `yarn unlink «@project/ui-kit»` in main project.
-
-Sometimes the linking package can be removed after unlinking. To fix this run `yarn install —force` to reinstall the package.
+Чтобы отменить линкинг нужно запустить `yarn unlink «@project/ui-kit»` в папке основного проекта.
+Иногда залинкованный пакет может быть удален после отмены линкинга. Для переустановки пакета нужно запустить `yarn install —force`.
