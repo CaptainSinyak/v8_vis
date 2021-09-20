@@ -1,6 +1,6 @@
 ## Linking
 
-For local testing out new features of Project Ui-Kit under development in main project (Agency, for example) you can use [linking](https://github.com/facebook/create-react-app).
+For local testing out new features of Project Ui-Kit under development in main project (Agency, for example) you can use [linking](https://classic.yarnpkg.com/en/docs/cli/link/).
 Follow these instructions to do it:
 
 1. Run `yarn link` in Project Ui-Kit folder;
